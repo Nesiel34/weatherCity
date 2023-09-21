@@ -1,0 +1,19 @@
+<div class="container mt-2" *ngIf="forecast">
+  <h1>Forecast For {{forecast.city.name}}</h1>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let date of any">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2>{{date[0]|date:"dd/MM/yyyy EEEE"}}</h2>
+        </mat-panel-title>
+        <!-- <mat-panel-description>
+          This is a summary of the content
+        </mat-panel-description> -->
+      </mat-expansion-panel-header>
+   <app-weather [weather]="date[1]"></app-weather>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+
+

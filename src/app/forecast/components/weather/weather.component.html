@@ -1,0 +1,8 @@
+<mat-list>
+  <ng-container *ngFor="let weatherObj of weather">
+    <mat-list-item >
+     <app-weather-item [weatherObj]="weatherObj"></app-weather-item>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+ </mat-list>

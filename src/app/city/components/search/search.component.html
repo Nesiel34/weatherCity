@@ -1,0 +1,16 @@
+<form class="d-flex mt-3 justify-content-center w-100">
+  <mat-form-field class="w-50" appearance="outline">
+    <mat-label>{{searchTxt}}</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <input type="text"
+           [placeholder]="searchTxt"
+           matInput
+           [formControl]="search"
+           [matAutocomplete]="auto">
+           <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected()" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of filteredCity | async" [value]="option">
+              {{option.matching_full_name}}
+            </mat-option>
+          </mat-autocomplete>
+  </mat-form-field>
+</form>

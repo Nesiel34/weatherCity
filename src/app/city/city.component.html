@@ -1,0 +1,4 @@
+<app-search (searchValueChangeOutput)="searchValueChange($event)"></app-search>
+<div class="d-flex justify-content-center justify-content-md-start flex-wrap gap-2 ms-2 pb-3">
+  <app-card-city  *ngFor="let city of cityCardArr" [cityObj]="city"></app-card-city>
+</div>

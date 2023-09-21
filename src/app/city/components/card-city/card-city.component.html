@@ -1,0 +1,28 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{cityObj.full_name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="cityObj.image"/>
+  <mat-card-content>
+    <div *ngIf="cityObj.population">
+      <mat-icon>groups</mat-icon>
+      <span>
+      {{cityObj.population|shortNumber}}
+    </span>
+    </div>
+      <mat-icon>watch_later</mat-icon>
+      {{cityObj.timezone|date:"dd/MM/yyyy HH:mm:ss"}}
+      <div *ngIf="cityObj.location">
+        <a [href]="googleMaps" target="_blank" title="open in google maps">
+          <mat-icon>location_on</mat-icon>{{cityObj.location.latitude}},{{ cityObj.location.longitude}}
+        </a>
+      </div>
+  </mat-card-content>
+  <mat-card-actions class="justify-content-end">
+
+    <a [routerLink]="['/Weather']" [queryParams]="{'lat':cityObj.location.latitude,'lon':cityObj.location.longitude}" title="forecast">
+      <button mat-mini-fab color="primary">  <mat-icon>air</mat-icon>
+      </button>
+    </a>
+  </mat-card-actions>
+</mat-card>
